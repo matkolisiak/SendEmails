@@ -9,7 +9,11 @@ This document describes how to set up SendEmailsToMemebersSecurityRole.
     -[`body`] 			(single line text)
 	
     -[`incident_lookup`]	(lookup; add lookup target to incident)
-3. Add plugin - SendEmailsToMembersSecurityRole
+3. Add plugin - SendEmailsToMembersSecurityRole 
+
+    -download .zip file from this repository
+    
+    -add -zip file to your organization
 4. Add bellow commands to your process (Incident changed)
     
     Plugin.SendSendEmailsToMemebersSecurityRole([`nameOfSecurityRole`] , [`subject`] , [`body`] , [`incidentid`] )
@@ -23,7 +27,7 @@ This document describes how to set up SendEmailsToMemebersSecurityRole.
 
 5. Create new process for sending the emails
 
--this process will start, when new record is created (`SendSendEmailsToMemebersSecurityRole` created new record in backend)
+    -this process will start, when new record is created (`SendSendEmailsToMemebersSecurityRole` created new record in backend)
 
 ![Screenshot](process2.png)
 
