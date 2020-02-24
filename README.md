@@ -24,7 +24,7 @@ This document describes how to set up
     
     Plugin.SendEmailsToChildIncidentCreators([`incidentid`], [`subject`] , [`body`] )
     
-    -[`primary_incident`] -primaryincidentid
+    -[`incidentid`] -primaryincidentid
 
     Plugin.SendSendEmailsToMemebersSecurityRole([`nameOfSecurityRole`] , [`subject`] , [`body`] , [`incidentid`] )
         
