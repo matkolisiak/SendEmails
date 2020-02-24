@@ -1,7 +1,7 @@
 # Send Emails plugin
 This document describes how to set up 
 - SendEmailsToMemebersSecurityRole
-- SendEmailsToChildIncidentCreators
+- SendEmailsToChildIncidentCreator
 
 ## Instructions
 1. Create entity [`emailnotify`]
@@ -17,12 +17,12 @@ This document describes how to set up
     -[`primary_incident`]	(lookup; add lookup target to incident)
 4. Add plugins to your organization 
 
-    -download .zip files from this repository (`SendEmailsToMemebersSecurityRole.zip`; `SendEmailsToChildIncidentCreators`)
+    -download .zip files from this repository (`SendEmailsToMemebersSecurityRole.zip`; `SendEmailsToChildIncidentCreator`)
     
     -add -zip files to your organization
 5. Add bellow commands to your process (Incident changed)
     
-    Plugin.SendEmailsToChildIncidentCreators([`incidentid`], [`subject`] , [`body`] )
+    Plugin.SendEmailsToChildIncidentCreator([`incidentid`], [`subject`] , [`body`] )
     
     -[`incidentid`] -primaryincidentid
 
@@ -37,7 +37,7 @@ This document describes how to set up
 
 6. Create new process for sending the emails
 
-    -this process will start, when new record is created (`SendSendEmailsToMemebersSecurityRole` or `SendEmailsToChildIncidentCreators` created new record in backend)
+    -this process will start, when new record is created (`SendSendEmailsToMemebersSecurityRole` or `SendEmailsToChildIncidentCreator` created new record in backend)
 
 ![Screenshot](process2.png)
 
