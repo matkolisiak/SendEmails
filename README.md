@@ -1,43 +1,53 @@
-# Send Emails plugin
+# SendNotifications plugin
 This document describes how to set up 
-- SendEmailsToMemebersSecurityRole
-- SendEmailsToChildIncidentCreator
+- NotifyMembersSecurityRole
+- NotifyCitiziens
+- NotifyFetchXML
 
 ## Instructions
 1. Create entity [`emailnotify`]
 2. Add attributes
 	
-    -[`subject`] 		(single line text)
+    -[`emailaddress1`] 		(single line text)
 	
     -[`body`] 			(single line text)
 	
     -[`incident_lookup`]	(lookup; add lookup target to incident)
+     
+    -[`userid_lookup`]	(lookup; add lookup target to account and user)
+    
+    -[`notificationtype`]	(optionset; 1=email, 2=push, 3=both)
 3. Add attribute to Incident [incident] entity
 
     -[`primary_incident`]	(lookup; add lookup target to incident)
-4. Add plugins to your organization 
+4. Add plugin to your organization 
 
-    -download .zip files from this repository (`SendEmailsToMemebersSecurityRole.zip`; `SendEmailsToChildIncidentCreator`)
+    -download .zip files from this repository (`SendNotifications.zip`)
     
-    -add -zip files to your organization
+    -add -zip file to your organization
 5. Add bellow commands to your process (Incident changed)
     
-    Plugin.SendEmailsToChildIncidentCreator([`incidentid`], [`subject`] , [`body`] )
+    NotifyCitizens([`incidentid`], [`subject`] , [`body`] ,[`Type(1=email, 2=push, 3=both)`])
     
     -[`incidentid`] -primaryincidentid
 
-    Plugin.SendSendEmailsToMemebersSecurityRole([`nameOfSecurityRole`] , [`subject`] , [`body`] , [`incidentid`] )
+    NotifyMembersSecurityRole([`nameOfSecurityRole`] , [`subject`] , [`body`] , [`incidentid`] , [`Type(1=email, 2=push, 3=both)`] )
         
     -[`nameOfSecurityRole`] e.g. Schedule Manager
+        
+    NotifyFetchXML([`fetchXML`] , [`subject`] , [`body`] , [`incidentid`] , [`Type(1=email, 2=push, 3=both)`] , [`isuser`] )
+        
+    -[`fetchXML`] - fetchxml request
+    -[`isuser`] - is request for users? => true; is request for account? => false
 
-*Note: It is necessary to define incidentid as in the image below (create local string for both plugins)*
+*Note: It is necessary to define incidentid as in the image below (create local string)*
 
 
 ![Screenshot](process1.png)
 
-6. Create new process for sending the emails
+6. Create new process for sending notifications
 
-    -this process will start, when new record is created (`SendSendEmailsToMemebersSecurityRole` or `SendEmailsToChildIncidentCreator` created new record in backend)
+    -this process will start, when new record is created (`NotifyCitizens` , `NotifyMembersSecurityRole` or `NotifyFetchXML` created new record in backend)
 
 ![Screenshot](process2.png)
 
