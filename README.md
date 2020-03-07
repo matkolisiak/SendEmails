@@ -49,6 +49,6 @@ This document describes how to set up
 
     -this process will start, when new record is created (`NotifyCitizens` , `NotifyMembersSecurityRole` or `NotifyFetchXML` created new record in backend)
 
-![Screenshot](process2.png)
+![Screenshot](process3.png)
 
 7. Congratulations, everything should work now.
